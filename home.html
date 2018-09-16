@@ -12,83 +12,13 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-   <script>
-	   $(function() {
-$('.draggable').draggable({
-  revert: "invalid",
-  stack: ".draggable",
-  helper: 'clone'
-});
-$('.droppable').droppable({
-  accept: ".draggable",
-  drop: function(event, ui) {
-    var droppable = $(this);
-    var draggable = ui.draggable;
-    // Move draggable into droppable
-    var drag = $('.droppable').has(ui.draggable).length ? draggable : draggable.clone().draggable({
-      revert: "invalid",
-      stack: ".draggable",
-      helper: 'clone'
-    });
-    drag.appendTo(droppable);
-    draggable.css({
-      float: 'left'
-    });
-  }
-	
-	
-});
-		   
-		   $('html').keyup(function(e){
-			if(e.keyCode == 46) {
-				
-//				var cbin = document.createElement('div');
-//				cbin.id = 'bin';
-//				cbin.className = 'droppable';
-////				var draw = document.getElementById('mainpanel').value;
-//				document.body.appendChild(cbin);
-////				 cbin.appendChild(draw);
-////				document.body.appendChild(btn);
-			var cbin = document.getElementById('bin').value;
-				 if($('#bin').length > 0)         
-					{
-						$("#bin").show(); 
-					}
+	<script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
+		 <script src="home.js"></script>
 
-				else{
-					$("#bin").hide();
-				}
-				
-				
-			}
-		});
-					$(".droppable").click(function(){
-						$("#bin").empty();
-					});
-		  $(".droppable#bin").click(function(){
-			   
-			  $("#bin").before($("#qa").outerHTML).hide({
-				  
-//				  $("#bin").empty();
-			  });
-			  
-			
-		});
-$('[data-toggle="tooltip"]').tooltip();  
-		   });
-	   function drop(event) {
-		   	alert("test");
-}
-function dragEnter(event) {
- 
-       	alert("test");
-
-}  
-  </script>
 	
 </head>
 
-	<body onload="myFunction()">
+	<body onload="firsttrig()">
 	
 	
 <!--
@@ -97,29 +27,36 @@ function dragEnter(event) {
 -->
 		
 		<div class="indicator">
+				<div class="droppable"  id="bin"  title="Click Me I'm hide ">
+	
+				</div>
+			<div id="devices" >
+						
+				<p class="allign">No of devices:
+				<span class="label label-success">Success Label</span>
+				<span class="label label-info">Info Label</span>
+				<span class="label label-warning">Warning Label</span>
+				<span class="label label-danger">Danger Label</span>
+				</p>
 			
-		<p id="devices" class="allign">No of devices:
+			
+			</div>
+			<div id="nodes" >
+			<p  class="allign">No of Nodes:
 			
 			<span class="label label-success">Success Label</span>
 			<span class="label label-info">Info Label</span>
 			<span class="label label-warning">Warning Label</span>
 			<span class="label label-danger">Danger Label</span>
 			
-			</p>
-			<p id="nodes" class="allign">No of Nodes:
-			
-			<span class="label label-success">Success Label</span>
-			<span class="label label-info">Info Label</span>
-			<span class="label label-warning">Warning Label</span>
-			<span class="label label-danger">Danger Label</span>
-			
 			
 			</p>
-			<p id="floor" class="allign">No of Floors:
-			
-			</p>
-			
-			
+			</div>
+		<div id="floor" >
+
+			<p  class="allign">No of Floors:</p>
+			<p id="flowNo"></p>	
+			</div>
 						<div class="dropdown">
 			  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Floor NO:
 			  <span class="caret"></span></button>
@@ -128,53 +65,127 @@ function dragEnter(event) {
 				<li><a href="#">Floor 2</a></li>
 				<li><a href="#">Floor 3</a></li>
 			  </ul>
+					<button type="button" class="btn btn-primary">Configure</button>		
 						</div>
 		</div>
 	
 	
 
-	<div class="droppable" id="mainpanel" ondragenter="dragEnter(event)">
+	<div id="mainpanel" >
+	
+			<table>
+			<tr>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+			</tr>
+				<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+			</tr>
+				<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+				<td><div class="droppable"  ></div></td>
+			</tr>
+		</table>
+
+		
+		
 		
 	
+		
+		
+	</div>
+		
 
-	<div class="droppable"  id="bin"  title="Click Me I'm hide ">
-	
-		</div>	
 	
 					
-		</div>	
-<div class="droppable" id="block_">
+		
 
-</div>
+<!--
+	<div class="droppable" id="block_">
+
 	
+	</div>
+		<div class="droppable" id="block_1">
+
+	
+	</div>
+-->
 	<div class="icon-bar">
 		
 		<table>
 			<tr class="section">
-			<td><div class="draggable" id="qa" ><i class="material-icons" style="font-size:68px;">extension</i></div></td>
+			<td><div class="draggable" id="q1" ><i class="material-icons" style="font-size:68px;">extension</i></div></td>
 			</tr>
 			<tr class="section" >
-			<td><div class="draggable"  id="qa"><i class="material-icons" style="font-size:68px;">business</i></div></td>
+			<td><div class="draggable"  id="q2"><i class="material-icons" style="font-size:68px;">business</i></div></td>
 			</tr>
 			<tr class="section">
-			<td><div class="draggable" id="qa"><i class="material-icons" style="font-size:68px;">kitchen</i></div></td>
+			<td><div class="draggable" id="q3"><i class="material-icons" style="font-size:68px;">kitchen</i></div></td>
 			</tr>
 			<tr class="section">
-			<td><div class="draggable"  id="qa"><i class="material-icons" style="font-size:68px;">local_library</i></div></td>
+			<td><div class="draggable"  id="q4"><i class="material-icons" style="font-size:68px;">local_library</i></div></td>
 			</tr>
 			<tr class="section">
-			<td><div class="draggable" id="qa"><i class="material-icons" style="font-size:68px;">transfer_within_a_station</i></div></td>
+			<td><div class="draggable" id="q5"><i class="material-icons" style="font-size:68px;">transfer_within_a_station</i></div></td>
 			</tr>
 			<tr class="section">
-			<td><div class="draggable"  id="qa"><i class="material-icons" style="font-size:68px;">	blur_off</i></div></td>
+			<td><div class="draggable"  id="q6"><i class="material-icons" style="font-size:68px;">	blur_off</i></div></td>
 			</tr>
 			<tr class="section" >
-			<td><div class="draggable" id="qa"><i class="material-icons" style="font-size:68px;">developer_board</i></div></td>
+			<td><div class="draggable" id="q7"><i class="material-icons" style="font-size:68px;">developer_board</i></div></td>
 			</tr>
 			<tr class="section">
-			<td><div class="draggable"  id="qa"><i class="material-icons" style="font-size:68px;">free_breakfast</i></div></td>
+			<td><div class="draggable"  id="q8"><i class="material-icons" style="font-size:68px;">free_breakfast</i></div></td>
 			</tr><tr class="section" >
-			<td><div class="draggable"  id="qa" onmouseout="javascript:alert('Hello World!')"><i class="material-icons" style="font-size:68px;">airport_shuttle</i></div></td>
+			<td><div class="draggable"  id="q9" ><i class="material-icons" style="font-size:68px;">airport_shuttle</i></div></td>
 			</tr>
 		</table>
 		</div>
@@ -220,50 +231,6 @@ function dragEnter(event) {
 
 </html>
 
-
-	
-	
-<!--
-//	function myFunction() {
-//		  var u = document.getElementById('tes').value;
-//		var iDiv = document.createElement('div');
-//iDiv.id = 'block';
-//iDiv.className = 'container';
-//document.getElementsByTagName('p')[0].appendChild(iDiv);
-//
-//iDiv.innerHTML = "I'm the first div";
-//
-//// Now create and append to iDiv
-//var innerDiv = document.createElement('input');
-//
-//innerDiv.className = 'block-2';
-//
-//// The variable iDiv is still good... Just append to it.
-//iDiv.appendChild(innerDiv);
-//innerDiv.innerHTML = "I'm the inner div";
--->
-<!--
-//		
-//		var i;
-//for (i = 0; i < 100; i++) {
-//		var btn = document.createElement("button");
-//	btn.id="con_but";
-//	btn.className="btn btn-info";
-//    var t = document.createTextNode("Floor"+" "+i);
-//
-//    btn.setAttribute("style","color:white;font-size:23px");
-//
-//    btn.appendChild(t);
-////    document.body.appendChild(btn);
-//	iDiv.appendChild(btn);
-//
--->
-<!--
-//}
-	}
--->
-	
-	
 	
 
 	

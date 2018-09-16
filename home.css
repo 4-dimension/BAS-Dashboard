@@ -1,25 +1,4 @@
-/*
-#block{
-	
-	position: absolute;
-	width: 255px;
-	left: 5px;
-	top: 10px;
-	border-left-style: solid;
-	height: 600px;
-	  overflow: auto;
-	
-	
-}
 
-#con_but{
-	
-	padding: 10px;
-	margin: 2px;
-	width: 200px;
-	
-}
-*/
 
 #mainpanel{
 	
@@ -107,4 +86,60 @@ width: 150px;
 	position: absolute;
 	right: 10px;
 	border-left: 5px solid green;
+}
+#block_{
+	
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	border: 2px dotted black;
+	left: 150px;
+	top: 200px;
+	
+}
+#block_1{
+	
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	border: 2px solid black;
+	left: 150px;
+	top: 200px;
+	
+}
+
+.droppable {
+  width: 150px;
+  height: 150px;
+  background: lightgrey;
+  margin: 5px; 
+	overflow-y: auto;
+
+}
+#flowNo{
+	
+	text-align: center;
+	font-family: sans-serif;
+	font-size: 60px;
+	top: -50px;
+}
+#login{
+	
+	position: absolute;
+	left: 650px;
+	top: 100px;
+	width: 250px;
+	height: 50px;
+	padding: 10px;
+	background-color: aliceblue;
+	border: 2px solid black;
+}
+
+#nodename{
+	display: none;
+	position: absolute;
+	top: 110px;
+	left: 50px;
+	font-family: cursive;
+	font-size: 40px;
 }

@@ -22,9 +22,19 @@ function firsttrig(){
     });
   });
 
-	
+	ping();
 }
-
+function ping(){
+       $.ajax({
+          url: 'http://192.168.8.1/html/home.html',
+          success: function(result){
+             alert('reply');
+          },     
+          error: function(result){
+              alert('timeout/error');
+          }
+       });
+    }
 window.getCount = function(parent, getChildrensChildren){
     var relevantChildren = 0;
     var children = parent.childNodes.length;

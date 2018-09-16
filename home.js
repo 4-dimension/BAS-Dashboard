@@ -114,6 +114,53 @@ $('.droppable').droppable({
 			  
 			
 		});
+		$(".draggable").mouseover(function(){
+     document.getElementById("nodename").style.display = "block";
+		var idn = $('.draggable').attr('id');
+		document.getElementById("nodename").innerHTML=idn;
+		switch(String(idn )){
+				
+			case "q1":
+				document.getElementById("nodename").innerHTML ="Hall Type Area";
+				
+				break;
+			case 'q2':
+				document.getElementById("nodename").innerHTML ="Cubicle Type Area";
+				
+				break;
+			case "q3":
+				document.getElementById("nodename").innerHTML ="Kitchen Type Area";
+				
+				break;
+			case "q4":
+				document.getElementById("nodename").innerHTML ="Study Type Area";
+				
+				break;
+			case "q5":
+				document.getElementById("nodename").innerHTML ="Passage Type Area";
+				
+				break;
+			case "q6":
+				document.getElementById("nodename").innerHTML ="staircase Type Area";
+				
+				break;
+			case "q7":
+				document.getElementById("nodename").innerHTML ="ServerRoom  Area";
+				
+				break;
+			case "q8":
+				document.getElementById("nodename").innerHTML ="Cafeteria  Area";
+				
+				break;
+			case "q9":
+				document.getElementById("nodename").innerHTML ="Parking  Area";
+				
+				break;
+		}
+});
+	$(".draggable").mouseleave(function(){
+     document.getElementById("nodename").style.display = "none";
+});
 
   });
 

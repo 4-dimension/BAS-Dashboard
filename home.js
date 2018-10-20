@@ -82,13 +82,13 @@ $('.droppable').droppable({
 		   $('html').keyup(function(e){
 			if(e.keyCode == 46) {
 				
-//				var cbin = document.createElement('div');
-//				cbin.id = 'bin';
-//				cbin.className = 'droppable';
-////				var draw = document.getElementById('mainpanel').value;
-//				document.body.appendChild(cbin);
-////				 cbin.appendChild(draw);
-////				document.body.appendChild(btn);
+				var cbin = document.createElement('div');
+				cbin.id = 'bin';
+				cbin.className = 'droppable';
+//				var draw = document.getElementById('mainpanel').value;
+				document.body.appendChild(cbin);
+//				 cbin.appendChild(draw);
+//				document.body.appendChild(btn);
 			var cbin = document.getElementById('bin').value;
 				 if($('#bin').length > 0)         
 					{
